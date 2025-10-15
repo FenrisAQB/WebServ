@@ -19,9 +19,7 @@ And run it with :
 ./webserv
 ```
 Or for more customization :
-```
 ./webserv [optional path to config file] (optionally add "log" as last argument to open the server logging settings)
-```
 
 # Usage
 There is a full interactive testing script available in the /tests folder. For some tests, it requires siege (sudo apt install siege). \

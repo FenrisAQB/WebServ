@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<br>
+	<title>Welcome to les animaux du bois de 4 sous' Webserv!</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" href="./images/favicon.png" type="image/png">
+</head>
+<body>
+<div class="mainTitle">
+	<h1 class="title">Welcome to our <img class="titleImage" src="./images/42_logo_title.png" alt="42">webserv!</h1>
+	<h2 class="subtitle">We are les animaux du bois de 4 sous</h2>
+	<p class="titleText">Our team consists of Loïc Pittet, Julian Barbey and Cédric Dörig, currently studying at 42 Lausanne.</p>
+</div>
+<p class="regular">Feel free to explore this page, clicking on links and asking us about what they do.</p>
+<div class="main-content">
+	<div class="section mandatory">
+		<h2 class="subtitle">Mandatory</h2>
+		<div class="buttons">
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="window.location.href='./html/long_file.html';">GET...</button>
+				<p>a page > 100kb</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="window.location.href='./html/image.html';">GET...</button>
+				<p>a page with an image</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="window.location.href='./redir';">GO...</button>
+				<p>to a 301 redir</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="window.location.href='./moved_permanently';">GO...</button>
+				<p>to a 308 redir</p>
+			</div>
+			<div class="card item-mandatory">
+				<input type="file" id="fileInput" style="display: none;" accept="*/*">
+				<button class="linkButton" onclick="selectFile('upload')">POST...</button>
+				<p>a file to our server</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="deleteFile()">DELETE...</button>
+				<p>a file from our server</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="deleteForbidden('/upload/folder')">DELETE...</button>
+				<p>a directory</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="window.location.href='./upload';">GET...</button>
+				<p>an autoindex</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="sendBadRequest()">GET...</button>
+				<p>a 400 error</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="deleteForbidden('/upload/default_upload_test_0.txt')">GET...</button>
+				<p>a 403 error</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="window.location.href='./nonexisting.html';">GET...</button>
+ 				<p>a 404 error</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="sendPut()">GET...</button>
+				<p>a 405 error</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="deleteForbidden('/upload')">GET...</button>
+				<p>a 409 error</p>
+			</div>
+			<div class="card item-mandatory">
+				<button class="linkButton" onclick="window.location.href='./loop';">GET...</button>
+				<p>a 508 error</p>
+			</div>
+			<div class="card item-mandatory">
+				<input type="file" id="fileInputCgi" style="display: none;" accept="*/*">
+				<button class="linkButton" onclick="selectFile('cgi', 'py')">POST...</button>
+				<p>a file via python CGI</p>
+			</div>
+		</div>
+	</div>
+	<div class="section bonus">
+			<h2 class="subtitle">Bonus</h2>
+			<div class="buttons">
+				<div class="card item-bonus">
+					<button class="linkButton" onclick="brewCoffee()">BREW...</button>
+					<p>a pot of coffee</p>
+				</div>
+				<div class="card item-bonus">
+					<button class="linkButton" onclick="selectFile('cgi', 'sh')">POST...</button>
+					<p>a file via bash CGI</p>
+				</div>
+			</div>
+	</div>
+	<div class="section about">
+		<h2 class="subtitle">About us</h2>
+			<div class="buttons">
+				<div class="card item-about">
+					<h3>Julian</h3>
+					<button class="linkButton about-linkedin" onclick="window.location.href='./fenrisLinkedin';"><img class="button-icon" src="./images/linkedin.png" alt="LinkedIn"></button>
+					<button class="linkButton about-linkedin" onclick="window.location.href='./fenrisGitHub';"><img class="button-icon" src="./images/github.png" alt="GitHub"></button>
+				</div>
+				<div class="card item-about">
+					<h3>Loïc</h3>
+					<button class="linkButton about-linkedin" onclick="window.location.href='./loicLinkedin';"><img class="button-icon" src="./images/linkedin.png" alt="LinkedIn"></button>
+					<button class="linkButton about-linkedin" onclick="window.location.href='./loicGitHub';"><img class="button-icon" src="./images/github.png" alt="GitHub"></button>
+				</div>
+				<div class="card item-about">
+					<h3>Cédric</h3>
+					<button class="linkButton about-linkedin" onclick="window.location.href='./cdrxLinkedin';"><img class="button-icon" src="./images/linkedin.png" alt="LinkedIn"></button>
+					<button class="linkButton about-linkedin" onclick="window.location.href='./cdrxGitHub';"><img class="button-icon" src="./images/github.png" alt="GitHub"></button>
+				</div>
+			</div>
+	</div>
+</div>
+<div class="footer">
+	<p>© made for 42 Lausanne by lpittet, jbarbey and cdorig. All rights reserved.</p>
+</div>
+
+<script>
+
+	function setupPopstateHandler() {
+		window.addEventListener('popstate', function(event) {
+			window.location.reload();
+		});
+	}
+
+	setupPopstateHandler();
+
+	function showHtmlPage(response, html, pageName = 'error') {
+		history.pushState({page: pageName}, `${response.status} Error`, `/error/${response.status}.html`);
+		document.open();
+		document.write(html);
+		document.close();
+		setupPopstateHandler();
+	}
+
+	function setButtonState(button, text, disabled) {
+		button.textContent = text;
+		button.disabled = disabled;
+	}
+
+	function resetButton(button, originalText) {
+		setButtonState(button, originalText, false);
+	}
+
+	function logAndAlert(error, message) {
+		console.error(message, error);
+		alert(message);
+	}
+
+	function selectFile(action, scriptType) {
+		if (action === 'upload') {
+			document.getElementById('fileInput').click();
+		} else if (action === 'cgi') {
+			document.getElementById('fileInputCgi').dataset.scriptType = scriptType || 'py';
+			document.getElementById('fileInputCgi').click();
+		} else if (action === 'error') {
+			document.getElementById('uploadError').click();
+		}
+	}
+
+	document.getElementById('fileInput').addEventListener('change', function(event) {
+		const file = event.target.files[0];
+		if (file) {
+			uploadFile(file, false);
+		}
+	});
+
+	document.getElementById('fileInputCgi').addEventListener('change', function(event) {
+		const file = event.target.files[0];
+		if (file) {
+			const scriptType = this.dataset.scriptType || 'py';
+			uploadFile(file, true, scriptType);
+		}
+	});
+
+	function uploadFile(file, useCgi = false, cgiExtension = 'py') {
+		const formData = new FormData();
+		formData.append('file', file);
+		let button;
+		if (useCgi) {
+			button = document.querySelector(`button[onclick*="'cgi', '${cgiExtension}'"]`);
+		} else {
+			button = document.querySelector(`button[onclick*="'upload'"]`);
+		}
+		if (!button) {
+			console.error('Could not find button');
+			return;
+		}
+		const originalText = button.textContent;
+		setButtonState(button, "Uploading...", true);
+		const endpoint = useCgi ? `/cgi-bin/postCgi.${cgiExtension}` : `/upload`;
+		fetch(endpoint, {
+			method: 'POST',
+			body: formData
+		})
+		.then(response => {
+			if (response.ok) {
+				return response.text().then(text => {
+					const method = useCgi ? `via CGI (${cgiExtension})` : '';
+					alert(`File "${file.name}" uploaded successfully ${method}`);
+					window.location.href = '/upload';
+				});
+			} else {
+				return response.text().then(html => showHtmlPage(response, html));
+			}
+		})
+		.catch(error => {
+			const errorMsg = useCgi ? 'CGI upload failed' : 'Upload failed';
+			logAndAlert(error, `${errorMsg}: Network error`);
+		})
+		.finally(() => {
+			resetButton(button, originalText);
+			const inputId = useCgi ? 'fileInputCgi' : 'fileInput';
+			document.getElementById(inputId).value = '';
+		})
+	}
+
+	function sendPut() {
+		const button = document.querySelector('button[onclick="sendPut()"]');
+		const originalText = button.textContent;
+		setButtonState(button, "Putting...", true);
+		fetch('/upload', {
+			method: 'PUT'
+		})
+		.then(response => {
+			return response.text().then(html => showHtmlPage(response, html));
+		})
+		.catch(error => {
+			logAndAlert(error, 'PUT failed: Network error');
+		})
+		.finally(() => {
+			resetButton(button, originalText);
+		});
+	}
+
+	function sendBadRequest(type) {
+		const button = document.querySelector('button[onclick^="sendBadRequest"]');
+		const originalText = button.textContent;
+		setButtonState(button, "Bad request...", true);
+		fetch('/upload', {
+			method: 'POST'
+		})
+		.then(response => {
+			return response.text().then(html=> showHtmlPage(response, html));
+		})
+		.catch(error => {
+			logAndAlert(error, 'Bad request failed: Network error');
+		})
+		.finally(() => {
+			resetButton(button, originalText);
+		});
+	}
+
+	function deleteFile() {
+		const filename = prompt('Enter filename to delete from /upload:');
+		if (!filename) {
+			return;
+		}
+		const button = document.querySelector('button[onclick="deleteFile()"]');
+		const originalText = button.textContent;
+		setButtonState(button, "Deleting...", true);
+		fetch(`/upload/${encodeURIComponent(filename)}`, {
+			method: 'DELETE'
+		})
+		.then(response => {
+			if (response.ok) {
+				alert(`File "${filename}" deleted successfully`);
+				window.location.href = '/upload';
+			} else {
+				return response.text().then(html => showHtmlPage(response, html));
+			}
+		})
+		.catch(error => {
+			logAndAlert(error, 'Delete failed: Network error');
+		})
+		.finally(() => {
+			resetButton(button, originalText);
+		});
+	}
+
+	function deleteForbidden(file) {
+		let proceed = true;
+		if (file === "/upload/default_upload_test_0.txt") {
+			proceed = confirm(`⚠️ This action requires proper file permissions.\n\nMake sure you have run:\nchmod 0 ${file}\n\nProceed with DELETE?`);
+		}
+		if (file === "/upload/folder") {
+			proceed = confirm(`⚠️ This action requires a folder named folder.\n\nMake sure it exists in the /upload directory\n\nProceed with DELETE?`);
+		}
+		if (!proceed) {
+			return;
+		}
+		const button = document.querySelector(`button[onclick="deleteForbidden('${file}')"]`);
+		const originalText = button.textContent;
+		setButtonState(button, "Deleting...", true);
+		fetch(file, {
+			method: 'DELETE'
+		})
+		.then(response => {
+			if (response.ok) {
+				alert(`File ${file} deleted successfully`);
+			} else {
+				return response.text().then(html => showHtmlPage(response, html));
+			}
+		})
+		.catch(error => {
+			logAndAlert(error, 'Delete failed: Network error');
+		})
+		.finally(() => {
+			resetButton(button, originalText);
+		});
+	}
+
+	function brewCoffee() {
+		const button = document.querySelector('button[onclick="brewCoffee()"]');
+		const originalText = button.textContent;
+		setButtonState(button, "Brewing...", true);
+		fetch('/', {
+			method: 'BREW'
+		})
+		.then(response => {
+			if (response.ok) {
+				return response.text().then(html => showHtmlPage(response, html, 'coffee'));
+			} else if (response.status === 503) {
+				alert('☕ 503 Service Unavailable: Coffee machine is out of order!');
+			} else {
+				return response.text().then(html => showHtmlPage(response, html));
+			}
+		})
+		.catch(error => {
+			logAndAlert(error, 'Brew failed: Network error');
+		})
+		.finally(() => {
+			resetButton(button, originalText);
+		});
+	}
+
+</script>
+
+</body>
+</html>

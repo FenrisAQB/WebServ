@@ -1,0 +1,278 @@
+body {
+	padding: 0;
+	margin: 0;
+	margin-left: 1vw;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 1000;
+	background-color: #0d1117;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+h1 {
+	font-size: 3vw;
+}
+
+h2 {
+	font-size: 2vw;
+}
+
+h3 {
+	font-size: 1.5vw;
+}
+
+.about {
+	background-color: #12181e;
+}
+
+.about .linkButton {
+	background: linear-gradient(135deg, #1a5f7d 0%, #5eb3e4 100%);
+	color: #ffffff;
+	box-shadow: 0 4px 15px rgba(94, 179, 228, 0.5);
+	font-size: 1.3vw;
+	padding: 0.6vw;
+	min-width: 3vw;
+	min-height: 3vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.about .linkButton:hover {
+	background: linear-gradient(135deg, #5eb3e4 0%, #4dd0e1 100%);
+	box-shadow: 0 6px 20px rgba(77, 208, 225, 0.8);
+	transform: translateY(-3px) scale(1.05);
+	color: #0d1117;
+}
+
+.about .card {
+	background-color: #1a2f3d;
+	color: #87ceeb;
+	box-shadow: 0 2px 10px rgba(37, 150, 190, 0.2);
+	transition: all 0.3s ease;
+}
+
+.about .card:hover {
+	box-shadow: 0 4px 20px rgba(77, 208, 225, 0.4);
+	transform: translateY(-2px);
+}
+
+.ascii {
+	white-space: pre;
+	font-family: monospace;
+	font-weight: bold;
+	color: #4dd0e1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	min-height: 50vh;
+	font-size: 1vw;
+}
+
+.bonus {
+	background-color: #0f3d5c;
+}
+
+.button-icon {
+	width: 1.8vw;
+	height: 1.8vw;
+	min-width: 20px;
+	min-height: 20px;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	min-width: 60vw;
+	max-width: 90vw;
+}
+
+.card {
+	padding: 1vw;
+	margin: 1vw;
+	border-radius: 1vw;
+	display: flex;
+	flex-direction: column;
+	width: 10vw;
+	height: 9vw;
+	justify-content: space-between;
+	text-align: center;
+	font-size: 1.2vw;
+}
+
+.chapterNumber {
+	color: #4dd0e1;
+	text-align: left;
+	white-space: nowrap;
+	font-size: 1.2vw;
+}
+
+.chapterSignature {
+	margin-left: 10vw;
+}
+
+.chapterText {
+	margin-left: 3vw;
+	margin-right: 3vw;
+	text-indent: 1vw;
+}
+
+.duo {
+	display: flex;
+	justify-content: center;
+	gap: 10vw;
+	width: 100%;
+	margin: 0 auto;
+	margin-left: -1vw;
+}
+
+.footer {
+	color: #6ba6cd;
+	font-size: 0.7vw;
+	text-align: center;
+	margin-top: auto;
+}
+
+.index {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 0 1.5ch;
+	list-style-type: none;
+	margin-left: 1vw;
+}
+
+.index li {
+	display: contents;
+}
+
+.indexLink {
+	color: #4dd0e1;
+	font-size: 1vw;
+}
+
+.indexLink:hover {
+	color: #4ca5dc;
+}
+
+.item-bonus {
+	background-color: #3a5f7d;
+	color: #87ceeb;
+}
+
+.item-mandatory {
+	background-color: #2d4a66;
+	color: #4dd0e1;
+}
+
+.link {
+	color: #4dd0e1;
+	font-size: 1.2vw;
+}
+
+.link:hover {
+	color: #4ca5dc;
+}
+
+.linkButton {
+	border-radius: 0.5vw;
+	font-size: 1.2vw;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 1000;
+	color: #0d1117;
+	background-color: #2596be;
+	border: none;
+	padding: 0.5vw 1vw;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.linkButton:hover {
+	background-color: #1bb3d9;
+	color: #0d1117;
+	transform: translateY(-2px);
+}
+
+.main-content {
+	flex: 1;
+}
+
+.mainTitle {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.mandatory {
+	background-color: #1a2332;
+	margin-top: 0;
+}
+
+.noIndent {
+	margin-left: 3vw;
+	margin-right: 3vw;
+}
+
+.right {
+	text-align: right;
+}
+
+.regular {
+	font-size: 1vw;
+	color: #6ba6cd;
+}
+
+.section {
+	padding: 2vw;
+	margin-right: 1vw;
+	margin-top: 1vw;
+	border-radius: 2vw;
+}
+
+.solo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.subtitle {
+	font-size: 2vw;
+	color: #4ca5dc;
+}
+
+.title {
+	color: #4dd0e1;
+}
+
+.titleImage {
+	width:4vw;
+	margin-right: 0.4vw;
+}
+
+.titleText {
+	font-size: 1.5vw;
+	color: #2596be;
+}
+
+/* Additional accent colors you can use */
+.accent-light {
+	color: #87ceeb; /* Light sky blue - for highlights */
+}
+
+.accent-muted {
+	color: #4682b4; /* Steel blue - for secondary text */
+}
+
+.accent-neutral {
+	color: #708090; /* Slate gray - for neutral elements */
+}

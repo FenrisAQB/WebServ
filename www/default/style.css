@@ -1,0 +1,211 @@
+body {
+	padding: 0;
+	margin: 0;
+	margin-left: 1vw;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 1000;
+	background-color: #242830;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+.about {
+	background-color: #1a1410;
+}
+
+.about .linkButton {
+	background: linear-gradient(135deg, #b8824a 0%, #e67e22 100%);
+	color: #fff5e6;
+	box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
+	font-size: 1.3vw;
+	padding: 0.6vw;
+	min-width: 3vw;
+	min-height: 3vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.about .linkButton:hover {
+	background: linear-gradient(135deg, #e67e22 0%, #ff9f40 100%);
+	box-shadow: 0 6px 20px rgba(255, 159, 64, 0.6);
+	transform: translateY(-3px) scale(1.02);
+	color: #ffffff;
+}
+
+.about .card {
+	background-color: #2d2419;
+	color: #ffd699;
+	box-shadow: 0 2px 10px rgba(138, 107, 71, 0.2);
+	transition: all 0.3s ease;
+}
+
+.about .card:hover {
+	box-shadow: 0 4px 20px rgba(255, 179, 102, 0.4);
+	transform: translateY(-2px);
+}
+
+.ascii {
+	white-space: pre;
+	font-family: monospace;
+	font-weight: bold;
+	color: #ffb366;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	min-height: 50vh;
+	font-size: 1vw;
+}
+
+.bonus {
+	background-color: #2a1f1a;
+}
+
+.button-icon {
+	width: 1.8vw;
+	height: 1.8vw;
+	min-width: 20px;
+	min-height: 20px;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	min-width: 60vw;
+	max-width: 90vw;
+}
+
+.card {
+	padding: 1vw;
+	margin: 1vw;
+	border-radius: 1vw;
+	display: flex;
+	flex-direction: column;
+	width: 10vw;
+	height: 9vw;
+	justify-content: space-between;
+	text-align: center;
+	font-size: 1.2vw;
+}
+
+.footer {
+	color: #b8956d;
+	font-size: 0.7vw;
+	text-align: center;
+	margin-top: auto;
+}
+
+.item-bonus {
+	background-color: #3d2f26;
+	color: #ffcc80;
+}
+
+.item-mandatory {
+	background-color: #2d3748;
+	color: #ffb366;
+}
+
+.link {
+	color: #ffb366;
+	font-size: 1.2vw;
+}
+
+.link:hover {
+	color: #ff9f40;
+}
+
+.linkButton {
+	border-radius: 0.5vw;
+	font-size: 1.2vw;
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: 1000;
+	color: #242830;
+	background-color: #cc6f2e;
+	border: none;
+	padding: 0.5vw 1vw;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.linkButton:hover {
+	background-color: #ff9f40;
+	color: #242830;
+	transform: translateY(-2px);
+}
+
+.main-content {
+	flex: 1;
+}
+
+.mainTitle {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.mandatory {
+	background-color: #1a202c;
+	margin-top: 0;
+}
+
+.regular {
+	font-size: 1vw;
+	color: #b8956d;
+}
+
+.section {
+	padding: 2vw;
+	margin-right: 1vw;
+	margin-top: 1vw;
+	border-radius: 2vw;
+}
+
+.solo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.subtitle {
+	font-size: 2vw;
+	color: #e6823a;
+}
+
+.title {
+	font-size: 3vw;
+	color: #ff9f40;
+}
+
+.titleImage {
+	width:4vw;
+	margin-right: 0.4vw;
+}
+
+.titleText {
+	font-size: 1.5vw;
+	color: #cc6f2e;
+}
+
+
+/* Additional accent colors you can use */
+.accent-light {
+	color: #ffd699; /* Very light orange - for highlights */
+}
+
+.accent-muted {
+	color: #8a6b47; /* Muted brown-orange - for secondary text */
+}
+
+.accent-neutral {
+	color: #9ca3af; /* Cool gray - for neutral elements */
+}
